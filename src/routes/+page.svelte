@@ -118,11 +118,19 @@
             </div>
         </div>
         <div class="hero-image">
-            <div class="macbook-frame">
+            <div class="hero-layer hero-back">
                 <img
-                    src="/screenshots/01-main-interface-drag-drop.png"
-                    alt="OHG Scribe interface"
+                    src="/screenshots/hero-transcript.png"
+                    alt="Completed transcript document"
                 />
+            </div>
+            <div class="hero-layer hero-front">
+                <div class="app-frame">
+                    <img
+                        src="/screenshots/hero-app.png"
+                        alt="OHG Scribe interface"
+                    />
+                </div>
             </div>
         </div>
     </div>
@@ -601,22 +609,45 @@
     }
 
     .hero-image {
+        position: relative;
         display: flex;
         justify-content: center;
+        align-items: center;
+        min-height: 400px;
     }
 
-    .macbook-frame {
-        background: #1a1a1a;
-        border-radius: 12px;
-        padding: 8px;
-        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
-        max-width: 100%;
+    .hero-layer {
+        position: absolute;
     }
 
-    .macbook-frame img {
-        width: 100%;
+    .hero-back {
+        transform: rotate(-6deg) translate(-60px, 20px);
+        z-index: 1;
+    }
+
+    .hero-back img {
+        width: 380px;
         border-radius: 8px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .hero-front {
+        z-index: 2;
+        transform: translate(60px, -10px);
+    }
+
+    .app-frame {
+        background: transparent;
+        border-radius: 12px;
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+    }
+
+    .app-frame img {
+        width: 420px;
         display: block;
+        border-radius: 12px;
     }
 
     /* How It Works */
@@ -935,6 +966,23 @@
 
         .hero-image {
             order: 2;
+            min-height: 320px;
+        }
+
+        .hero-back {
+            transform: rotate(-4deg) translate(-40px, 15px);
+        }
+
+        .hero-back img {
+            width: 280px;
+        }
+
+        .hero-front {
+            transform: translate(40px, -5px);
+        }
+
+        .app-frame img {
+            width: 320px;
         }
 
         .cta-buttons {

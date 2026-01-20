@@ -75,6 +75,10 @@
                     <span class="toc-icon">✨</span>
                     <span>Smart Extraction</span>
                 </a>
+                <a href="#refinement" class="toc-item">
+                    <span class="toc-icon">🔄</span>
+                    <span>Transcript Refinement</span>
+                </a>
                 <a href="#analysis" class="toc-item">
                     <span class="toc-icon">📊</span>
                     <span>Analysis Options</span>
@@ -286,6 +290,44 @@
                         required. If someone says "Thank you, Dr. Smith," the AI
                         will pick up on that.
                     </p>
+
+                    <div class="info-callout">
+                        <span class="callout-icon">✨</span>
+                        <div>
+                            <strong>AI-inferred names</strong> are marked with a
+                            sparkle icon so you always know which names were detected
+                            by AI versus confirmed by you.
+                        </div>
+                    </div>
+
+                    <h3>Edit Speaker Names</h3>
+                    <p>
+                        Made a mistake or want to correct a name? OHG Scribe
+                        makes it easy to edit speaker names in two ways:
+                    </p>
+
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <span class="feature-icon">✏️</span>
+                            <div>
+                                <strong>Inline Editing</strong>
+                                <p>
+                                    Click any speaker name directly in the
+                                    transcript to edit just that instance.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">📝</span>
+                            <div>
+                                <strong>Bulk Editing</strong>
+                                <p>
+                                    Use the "Edit Speakers" button to rename all
+                                    occurrences of a speaker at once.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-image">
                     <img
@@ -415,11 +457,125 @@
         </div>
     </section>
 
+    <!-- Transcript Refinement Section -->
+    <section id="refinement" class="guide-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2>Transcript Refinement</h2>
+                <span class="feature-badge">🔄 New</span>
+            </div>
+            <div class="content-card">
+                <div class="card-content">
+                    <p>
+                        Not satisfied with the initial transcription? OHG Scribe
+                        lets you re-transcribe your audio with different
+                        settings — without re-uploading the file.
+                    </p>
+
+                    <h3>When to Use Refinement</h3>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <span class="feature-icon">👥</span>
+                            <div>
+                                <strong>Wrong Speaker Count</strong>
+                                <p>
+                                    If the AI detected fewer or more speakers
+                                    than actually present, adjust and re-run.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">📚</span>
+                            <div>
+                                <strong>Add Vocabulary</strong>
+                                <p>
+                                    Noticed misheard terminology? Add boost
+                                    words and refine for better accuracy.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✨</span>
+                            <div>
+                                <strong>Change Labeling Mode</strong>
+                                <p>
+                                    Switch between generic labels and
+                                    AI-inferred names after seeing the initial
+                                    results.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>How It Works</h3>
+                    <div class="steps-list">
+                        <div class="step-item">
+                            <span class="step-num">1</span>
+                            <div class="step-content">
+                                <h4>Click "Refine"</h4>
+                                <p>
+                                    Available on any transcript with cached
+                                    audio.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-num">2</span>
+                            <div class="step-content">
+                                <h4>Adjust Settings</h4>
+                                <p>
+                                    Change speaker count, add vocabulary, or
+                                    switch labeling mode.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-num">3</span>
+                            <div class="step-content">
+                                <h4>Watch Progress</h4>
+                                <p>
+                                    A visual indicator shows upload, processing,
+                                    and completion status.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-callout success">
+                        <span class="callout-icon">💡</span>
+                        <div>
+                            <strong>Speaker names are preserved:</strong> Any names
+                            you've edited are automatically passed as hints to the
+                            refinement, helping maintain consistency.
+                        </div>
+                    </div>
+
+                    <div class="info-callout">
+                        <span class="callout-icon">⚠️</span>
+                        <div>
+                            <strong>Note:</strong> Refinement uses additional API
+                            credits since it re-transcribes the audio. The original
+                            transcript is preserved as a separate entry.
+                        </div>
+                    </div>
+                </div>
+                <div class="card-image">
+                    <img
+                        src="/guide/refine-panel.png"
+                        alt="OHG Scribe Refine Panel"
+                        class="screenshot"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Analysis Section -->
     <section id="analysis" class="guide-section alt-bg">
         <div class="container">
             <div class="section-header">
-                <span class="section-number">06</span>
+                <span class="section-number">07</span>
                 <h2>Analysis Options</h2>
             </div>
             <div class="content-card">
@@ -845,6 +1001,41 @@
 
     .cta-note a {
         text-decoration: underline;
+    }
+
+    /* Feature List */
+    .feature-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin: 16px 0;
+    }
+
+    .feature-item {
+        display: flex;
+        gap: 16px;
+        padding: 16px;
+        background: white;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .feature-icon {
+        font-size: 24px;
+        flex-shrink: 0;
+    }
+
+    .feature-item strong {
+        display: block;
+        font-size: 15px;
+        color: var(--text-dark);
+        margin-bottom: 4px;
+    }
+
+    .feature-item p {
+        font-size: 14px;
+        margin: 0;
+        color: var(--text-light);
     }
 
     /* Responsive */
