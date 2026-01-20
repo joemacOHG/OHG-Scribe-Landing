@@ -2,13 +2,43 @@
     import { onMount } from "svelte";
 
     let isMac = $state(true);
+    let macDownloadUrl = $state(
+        "https://github.com/joemacOHG/ohg-scribe/releases/latest",
+    );
+    let winDownloadUrl = $state(
+        "https://github.com/joemacOHG/ohg-scribe/releases/latest",
+    );
 
-    onMount(() => {
+    onMount(async () => {
         isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+
+        // Fetch latest release from GitHub API
+        try {
+            const res = await fetch(
+                "https://api.github.com/repos/joemacOHG/ohg-scribe/releases/latest",
+            );
+            if (res.ok) {
+                const release = await res.json();
+                for (const asset of release.assets) {
+                    if (
+                        asset.name.endsWith(".dmg") &&
+                        asset.name.includes("aarch64")
+                    ) {
+                        macDownloadUrl = asset.browser_download_url;
+                    }
+                    if (asset.name.endsWith("-setup.exe")) {
+                        winDownloadUrl = asset.browser_download_url;
+                    }
+                }
+            }
+        } catch (e) {
+            console.warn("Could not fetch latest release:", e);
+        }
     });
 
-    const downloadUrl =
-        "https://github.com/joemacstevens/ohg-scribe/releases/latest";
+    // Computed download URL based on platform
+    const downloadUrl = $derived(isMac ? macDownloadUrl : winDownloadUrl);
+    const altDownloadUrl = $derived(isMac ? winDownloadUrl : macDownloadUrl);
 </script>
 
 <!-- Hero Section -->
@@ -31,7 +61,7 @@
                 <a href={downloadUrl} class="btn btn-primary">
                     {isMac ? "Download for Mac" : "Download for Windows"}
                 </a>
-                <a href={downloadUrl} class="btn-secondary">
+                <a href={altDownloadUrl} class="btn-secondary">
                     Also available for {isMac ? "Windows" : "Mac"}
                 </a>
             </div>
@@ -317,7 +347,7 @@
             <a href={downloadUrl} class="btn btn-primary">
                 {isMac ? "Download for Mac" : "Download for Windows"}
             </a>
-            <a href={downloadUrl} class="btn-secondary-light">
+            <a href={altDownloadUrl} class="btn-secondary-light">
                 Also available for {isMac ? "Windows" : "Mac"}
             </a>
         </div>
