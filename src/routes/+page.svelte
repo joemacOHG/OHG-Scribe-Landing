@@ -2,12 +2,17 @@
     import { onMount } from "svelte";
 
     let isMac = $state(true);
-    let macDownloadUrl = $state(
+    let macArm64Url = $state(
+        "https://github.com/joemacOHG/ohg-scribe/releases/latest",
+    );
+    let macIntelUrl = $state(
         "https://github.com/joemacOHG/ohg-scribe/releases/latest",
     );
     let winDownloadUrl = $state(
         "https://github.com/joemacOHG/ohg-scribe/releases/latest",
     );
+    let selectedMacChip = $state<"arm64" | "intel">("arm64");
+    let showMacSelector = $state(false);
 
     onMount(async () => {
         isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
@@ -24,7 +29,13 @@
                         asset.name.endsWith(".dmg") &&
                         asset.name.includes("aarch64")
                     ) {
-                        macDownloadUrl = asset.browser_download_url;
+                        macArm64Url = asset.browser_download_url;
+                    }
+                    if (
+                        asset.name.endsWith(".dmg") &&
+                        asset.name.includes("x86_64")
+                    ) {
+                        macIntelUrl = asset.browser_download_url;
                     }
                     if (asset.name.endsWith("-setup.exe")) {
                         winDownloadUrl = asset.browser_download_url;
@@ -36,9 +47,11 @@
         }
     });
 
-    // Computed download URL based on platform
+    // Computed download URL based on platform and chip selection
+    const macDownloadUrl = $derived(
+        selectedMacChip === "arm64" ? macArm64Url : macIntelUrl,
+    );
     const downloadUrl = $derived(isMac ? macDownloadUrl : winDownloadUrl);
-    const altDownloadUrl = $derived(isMac ? winDownloadUrl : macDownloadUrl);
 </script>
 
 <!-- Hero Section -->
@@ -54,16 +67,54 @@
             </div>
             <h1>Drop. Transcribe. Done.</h1>
             <p class="subhead">
-                Turn advisory boards, interviews, and meetings into professional
-                Word documents in minutes.
+                An OPEN Health–approved internal transcription tool for advisory
+                boards, interviews, and meetings. Turn recordings into clean,
+                speaker-labeled Word documents in minutes.
             </p>
             <div class="cta-buttons">
-                <a href={downloadUrl} class="btn btn-primary">
-                    {isMac ? "Download for Mac" : "Download for Windows"}
-                </a>
-                <a href={altDownloadUrl} class="btn-secondary">
+                {#if isMac}
+                    <a href={downloadUrl} class="btn btn-primary">
+                        Download for Mac
+                        <span class="chip-label">
+                            {selectedMacChip === "arm64"
+                                ? "Apple Silicon"
+                                : "Intel"}
+                        </span>
+                    </a>
+                    <button
+                        class="btn-text-link"
+                        onclick={() => (showMacSelector = !showMacSelector)}
+                    >
+                        {showMacSelector
+                            ? "Hide options"
+                            : "Need Intel version?"}
+                    </button>
+                    {#if showMacSelector}
+                        <div class="mac-selector">
+                            <button
+                                class="chip-btn"
+                                class:active={selectedMacChip === "arm64"}
+                                onclick={() => (selectedMacChip = "arm64")}
+                            >
+                                Apple Silicon (M1/M2/M3)
+                            </button>
+                            <button
+                                class="chip-btn"
+                                class:active={selectedMacChip === "intel"}
+                                onclick={() => (selectedMacChip = "intel")}
+                            >
+                                Intel Mac
+                            </button>
+                        </div>
+                    {/if}
+                {:else}
+                    <a href={downloadUrl} class="btn btn-primary">
+                        Download for Windows
+                    </a>
+                {/if}
+                <span class="btn-secondary">
                     Also available for {isMac ? "Windows" : "Mac"}
-                </a>
+                </span>
             </div>
         </div>
         <div class="hero-image">
@@ -97,8 +148,8 @@
                 </div>
                 <h3>Drop</h3>
                 <p>
-                    Drag any audio or video file — MP4, MP3, WAV, and 8 more
-                    formats
+                    Drag any audio or video file — MP4, MOV, MP3, WAV, and 8+
+                    additional formats.
                 </p>
             </div>
             <div class="step-connector"></div>
@@ -117,7 +168,10 @@
                     </svg>
                 </div>
                 <h3>Transcribe</h3>
-                <p>AI processes your recording with 95%+ accuracy in minutes</p>
+                <p>
+                    AI processes your recording with high accuracy,
+                    automatically identifying speakers and structure.
+                </p>
             </div>
             <div class="step-connector"></div>
             <div class="step">
@@ -138,8 +192,8 @@
                 </div>
                 <h3>Export</h3>
                 <p>
-                    Download a formatted Word document with speaker labels and
-                    timestamps
+                    Download a formatted Word document with speaker labels,
+                    timestamps, and optional summaries.
                 </p>
             </div>
         </div>
@@ -296,24 +350,24 @@
                 <div class="use-case-icon">👥</div>
                 <h3>Advisory Board Meetings</h3>
                 <p>
-                    Capture every expert opinion with accurate speaker
-                    attribution across 10+ participants
+                    Accurately capture expert discussions with clear speaker
+                    attribution across large groups.
                 </p>
             </div>
             <div class="use-case-card">
                 <div class="use-case-icon">🎤</div>
                 <h3>KOL Interviews</h3>
                 <p>
-                    Get verbatim transcripts ready for medical-legal review —
-                    formatted and time-stamped
+                    Generate verbatim, time-stamped transcripts ready for
+                    medical-legal review.
                 </p>
             </div>
             <div class="use-case-card">
                 <div class="use-case-icon">📋</div>
                 <h3>Patient Research</h3>
                 <p>
-                    Document qualitative interviews with optional sentiment
-                    analysis and topic detection
+                    Document qualitative interviews with structured transcripts
+                    suitable for analysis.
                 </p>
             </div>
         </div>
@@ -325,8 +379,8 @@
     <div class="container">
         <h2>Ready to Get Started?</h2>
         <p class="get-started-desc">
-            OHG Scribe requires an API key for transcription services. Request
-            yours to start transcribing.
+            OHG Scribe requires an internal API key for transcription services.
+            Request access to begin transcribing.
         </p>
         <div class="get-started-action">
             <a
@@ -349,9 +403,9 @@
             <a href={downloadUrl} class="btn btn-primary">
                 {isMac ? "Download for Mac" : "Download for Windows"}
             </a>
-            <a href={altDownloadUrl} class="btn-secondary-light">
+            <span class="btn-secondary-light">
                 Also available for {isMac ? "Windows" : "Mac"}
-            </a>
+            </span>
         </div>
         <div class="contact">
             <p>Questions? Reach out:</p>
@@ -497,6 +551,56 @@
     .btn-secondary-light {
         color: rgba(255, 255, 255, 0.7);
         font-size: 14px;
+    }
+
+    /* Mac Chip Selector */
+    .chip-label {
+        font-size: 12px;
+        font-weight: 400;
+        opacity: 0.8;
+        margin-left: 8px;
+    }
+
+    .btn-text-link {
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 13px;
+        cursor: pointer;
+        padding: 0;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+
+    .btn-text-link:hover {
+        color: white;
+    }
+
+    .mac-selector {
+        display: flex;
+        gap: 8px;
+        margin-top: 8px;
+    }
+
+    .chip-btn {
+        padding: 8px 16px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .chip-btn:hover {
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .chip-btn.active {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: white;
+        color: white;
     }
 
     .hero-image {
