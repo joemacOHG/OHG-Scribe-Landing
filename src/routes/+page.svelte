@@ -320,21 +320,22 @@
     </div>
 </section>
 
-<!-- Pricing -->
-<section class="pricing">
+<!-- Get Started -->
+<section class="get-started">
     <div class="container">
-        <h2>Pay Only for What You Use</h2>
-        <p class="pricing-desc">
-            Bring your own AssemblyAI API key — no platform fees, no
-            subscription
+        <h2>Ready to Get Started?</h2>
+        <p class="get-started-desc">
+            OHG Scribe requires an API key for transcription services. Request
+            yours to start transcribing.
         </p>
-        <div class="pricing-highlight">
-            <div class="price-rate">~$0.015 per minute of audio</div>
-            <div class="price-example">
-                A 2-hour advisory board recording costs about <strong
-                    >$2.40</strong
-                > to transcribe
-            </div>
+        <div class="get-started-action">
+            <a
+                href="mailto:assemblyai@openhealthgroup.com?subject=OHG%20Scribe%20API%20Key%20Request&body=Hi%2C%0A%0AI%20would%20like%20to%20request%20an%20API%20key%20for%20OHG%20Scribe.%0A%0AName%3A%20%0AEmail%3A%20%0ATeam%2FDepartment%3A%20%0A%0AThank%20you!"
+                class="btn btn-primary"
+            >
+                Request API Key
+            </a>
+            <p class="get-started-note">We'll send your key within 24 hours</p>
         </div>
     </div>
 </section>
@@ -755,47 +756,42 @@
         font-size: 15px;
     }
 
-    /* Pricing */
-    .pricing {
+    /* Get Started */
+    .get-started {
         background: white;
         text-align: center;
     }
 
-    .pricing h2 {
+    .get-started h2 {
         font-size: 40px;
         margin-bottom: 16px;
         color: var(--text-dark);
     }
 
-    .pricing-desc {
+    .get-started-desc {
         color: var(--text-light);
         font-size: 18px;
         margin-bottom: 40px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .pricing-highlight {
-        max-width: 500px;
+    .get-started-action {
+        max-width: 400px;
         margin: 0 auto;
-        padding: 40px;
-        background: linear-gradient(135deg, #f3e8ff 0%, #fce7f3 100%);
-        border-radius: 20px;
     }
 
-    .price-rate {
-        font-size: 28px;
-        font-weight: 700;
-        color: var(--purple-deep);
-        margin-bottom: 16px;
+    .get-started-action .btn {
+        width: 100%;
+        padding: 20px 40px;
+        font-size: 18px;
     }
 
-    .price-example {
+    .get-started-note {
+        margin-top: 16px;
         color: var(--text-light);
-        font-size: 16px;
-    }
-
-    .price-example strong {
-        color: var(--accent-magenta);
-        font-size: 20px;
+        font-size: 14px;
     }
 
     /* Footer CTA */
@@ -892,7 +888,7 @@
         .video-demo h2,
         .features h2,
         .use-cases h2,
-        .pricing h2,
+        .get-started h2,
         .footer-cta h2 {
             font-size: 28px;
         }
