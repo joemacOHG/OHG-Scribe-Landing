@@ -137,10 +137,11 @@
                     </div>
                 </div>
                 <div class="card-image">
-                    <div class="placeholder-image">
-                        <span>📷</span>
-                        <p>Settings screenshot coming soon</p>
-                    </div>
+                    <img
+                        src="/guide/settings-api-keys.png"
+                        alt="OHG Scribe Settings - API Keys"
+                        class="screenshot"
+                    />
                 </div>
             </div>
         </div>
@@ -287,10 +288,11 @@
                     </p>
                 </div>
                 <div class="card-image">
-                    <div class="placeholder-image">
-                        <span>👥</span>
-                        <p>Speaker options screenshot coming soon</p>
-                    </div>
+                    <img
+                        src="/guide/speaker-options.png"
+                        alt="OHG Scribe Speaker Options"
+                        class="screenshot"
+                    />
                 </div>
             </div>
         </div>
@@ -330,10 +332,11 @@
                     </p>
                 </div>
                 <div class="card-image">
-                    <div class="placeholder-image">
-                        <span>📚</span>
-                        <p>Vocabulary panel screenshot coming soon</p>
-                    </div>
+                    <img
+                        src="/guide/vocabulary-panel.png"
+                        alt="OHG Scribe Vocabulary Panel"
+                        class="screenshot"
+                    />
                 </div>
             </div>
         </div>
@@ -402,10 +405,11 @@
                     </div>
                 </div>
                 <div class="card-image">
-                    <div class="placeholder-image featured">
-                        <span>✨</span>
-                        <p>Document extraction screenshot coming soon</p>
-                    </div>
+                    <img
+                        src="/guide/document-extraction.png"
+                        alt="OHG Scribe Document Extraction"
+                        class="screenshot featured"
+                    />
                 </div>
             </div>
         </div>
@@ -628,29 +632,17 @@
         top: 140px;
     }
 
-    .placeholder-image {
-        aspect-ratio: 4 / 3;
-        background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+    /* Screenshot Images */
+    .screenshot {
+        width: 100%;
         border-radius: 12px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: var(--text-light);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        border: 1px solid rgba(0, 0, 0, 0.08);
     }
 
-    .placeholder-image.featured {
-        background: linear-gradient(135deg, #f0abfc 0%, #f472b6 100%);
-        color: white;
-    }
-
-    .placeholder-image span {
-        font-size: 48px;
-        margin-bottom: 12px;
-    }
-
-    .placeholder-image p {
-        font-size: 14px;
+    .screenshot.featured {
+        box-shadow: 0 12px 40px rgba(236, 72, 153, 0.2);
+        border: 2px solid var(--accent-pink);
     }
 
     /* Steps List */
