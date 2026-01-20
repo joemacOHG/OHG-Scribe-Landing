@@ -205,14 +205,11 @@
     <div class="container">
         <h2>See OHG Scribe in Action</h2>
         <div class="video-wrapper">
-            <div class="video-placeholder">
-                <button class="play-button">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <polygon points="5,3 19,12 5,21" />
-                    </svg>
-                </button>
-            </div>
-            <p class="video-caption">Watch a 2-minute walkthrough</p>
+            <video controls preload="metadata" class="demo-video">
+                <source src="/appwalkthrough.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+            <p class="video-caption">Watch a quick walkthrough</p>
         </div>
     </div>
 </section>
@@ -713,39 +710,11 @@
         margin: 0 auto;
     }
 
-    .video-placeholder {
-        aspect-ratio: 16 / 9;
-        background: rgba(255, 255, 255, 0.1);
+    .demo-video {
+        width: 100%;
         border-radius: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .play-button {
-        width: 80px;
-        height: 80px;
-        background: var(--gradient-accent);
-        border: none;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        cursor: pointer;
-        transition: transform 0.2s ease;
-    }
-
-    .play-button:hover {
-        transform: scale(1.1);
-    }
-
-    .play-button svg {
-        width: 32px;
-        height: 32px;
-        margin-left: 4px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .video-caption {
