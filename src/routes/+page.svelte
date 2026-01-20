@@ -336,6 +336,7 @@
                 Request API Key
             </a>
             <p class="get-started-note">We'll send your key within 24 hours</p>
+            <a href="/guide" class="guide-link">View Setup Guide →</a>
         </div>
     </div>
 </section>
@@ -792,6 +793,19 @@
         margin-top: 16px;
         color: var(--text-light);
         font-size: 14px;
+    }
+
+    .guide-link {
+        display: inline-block;
+        margin-top: 16px;
+        color: var(--accent-pink);
+        font-weight: 600;
+        font-size: 14px;
+        transition: opacity 0.2s;
+    }
+
+    .guide-link:hover {
+        opacity: 0.8;
     }
 
     /* Footer CTA */
