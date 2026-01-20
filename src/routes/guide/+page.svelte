@@ -363,8 +363,8 @@
                             <div class="step-content">
                                 <h4>Upload a document</h4>
                                 <p>
-                                    Supports PDF, Word (.docx), and PowerPoint
-                                    (.pptx)
+                                    Supports Word (.docx), PDF, Plain Text
+                                    (.txt), and Markdown (.md)
                                 </p>
                             </div>
                         </div>
