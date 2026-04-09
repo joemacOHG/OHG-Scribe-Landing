@@ -55,14 +55,7 @@
         <div class="container">
             <h2>Quick Links</h2>
             <div class="toc-grid">
-                <a href="#api-setup" class="toc-item">
-                    <span class="toc-icon">🔑</span>
-                    <span>API Key Setup</span>
-                </a>
-                <a href="#openai-key" class="toc-item">
-                    <span class="toc-icon">🤖</span>
-                    <span>OpenAI Key</span>
-                </a>
+
                 <a href="#speakers" class="toc-item">
                     <span class="toc-icon">👥</span>
                     <span>Speaker Identification</span>
@@ -87,170 +80,13 @@
         </div>
     </nav>
 
-    <!-- API Setup Section -->
-    <section id="api-setup" class="guide-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">01</span>
-                <h2>AssemblyAI API Key Setup</h2>
-            </div>
-            <div class="content-card">
-                <div class="card-content">
-                    <p>
-                        OHG Scribe uses AssemblyAI for high-accuracy
-                        transcription. You'll need an API key to get started.
-                    </p>
 
-                    <div class="steps-list">
-                        <div class="step-item">
-                            <span class="step-num">1</span>
-                            <div class="step-content">
-                                <h4>Request your API key</h4>
-                                <p>
-                                    Contact us to receive your team's AssemblyAI
-                                    API key.
-                                </p>
-                                <a
-                                    href="mailto:assemblyai@openhealthgroup.com?subject=OHG%20Scribe%20API%20Key%20Request"
-                                    class="btn btn-secondary"
-                                >
-                                    Request API Key →
-                                </a>
-                            </div>
-                        </div>
-                        <div class="step-item">
-                            <span class="step-num">2</span>
-                            <div class="step-content">
-                                <h4>Open Settings</h4>
-                                <p>
-                                    Click the gear icon in the top-right corner
-                                    of OHG Scribe.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="step-item">
-                            <span class="step-num">3</span>
-                            <div class="step-content">
-                                <h4>Enter your key</h4>
-                                <p>
-                                    Paste your API key into the "AssemblyAI API
-                                    Key" field and click Save.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-image">
-                    <img
-                        src="/guide/settings-api-keys.png"
-                        alt="OHG Scribe Settings - API Keys"
-                        class="screenshot"
-                    />
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- OpenAI Key Section -->
-    <section id="openai-key" class="guide-section alt-bg">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">02</span>
-                <h2>OpenAI API Key (Optional)</h2>
-            </div>
-            <div class="content-card">
-                <div class="card-content">
-                    <p>
-                        An OpenAI key enables advanced features like AI speaker
-                        name inference, document vocabulary extraction, and
-                        summary generation.
-                    </p>
-
-                    <div class="steps-list">
-                        <div class="step-item">
-                            <span class="step-num">1</span>
-                            <div class="step-content">
-                                <h4>Create an OpenAI account</h4>
-                                <p>
-                                    Visit OpenAI's platform and sign up for an
-                                    account.
-                                </p>
-                                <a
-                                    href="https://platform.openai.com/signup"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="btn btn-secondary"
-                                >
-                                    Create OpenAI Account →
-                                </a>
-                            </div>
-                        </div>
-                        <div class="step-item">
-                            <span class="step-num">2</span>
-                            <div class="step-content">
-                                <h4>Generate an API key</h4>
-                                <p>
-                                    Go to the API Keys section and create a new
-                                    secret key.
-                                </p>
-                                <a
-                                    href="https://platform.openai.com/api-keys"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="btn btn-secondary"
-                                >
-                                    Go to API Keys →
-                                </a>
-                            </div>
-                        </div>
-                        <div class="step-item">
-                            <span class="step-num">3</span>
-                            <div class="step-content">
-                                <h4>Add credits (if needed)</h4>
-                                <p>
-                                    OpenAI requires pre-paid credits. $5-10 is
-                                    plenty for extensive use.
-                                </p>
-                                <a
-                                    href="https://platform.openai.com/settings/organization/billing/overview"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="btn btn-secondary"
-                                >
-                                    Add Billing →
-                                </a>
-                            </div>
-                        </div>
-                        <div class="step-item">
-                            <span class="step-num">4</span>
-                            <div class="step-content">
-                                <h4>Enter in OHG Scribe</h4>
-                                <p>
-                                    Paste your key in Settings → "OpenAI API
-                                    Key" field.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="info-callout">
-                        <span class="callout-icon">💡</span>
-                        <div>
-                            <strong>Good to know:</strong> OpenAI charges per usage.
-                            Typical costs are $0.01-0.05 per transcription for AI
-                            features. Your key stays on your device.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Speakers Section -->
     <section id="speakers" class="guide-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-number">03</span>
+                <span class="section-number">01</span>
                 <h2>Speaker Identification</h2>
             </div>
             <div class="content-card">
@@ -344,7 +180,7 @@
     <section id="vocabulary" class="guide-section alt-bg">
         <div class="container">
             <div class="section-header">
-                <span class="section-number">04</span>
+                <span class="section-number">02</span>
                 <h2>Medical Vocabulary</h2>
             </div>
             <div class="content-card">
@@ -388,7 +224,7 @@
     <section id="extraction" class="guide-section featured">
         <div class="container">
             <div class="section-header">
-                <span class="section-number">05</span>
+                <span class="section-number">03</span>
                 <h2>Smart Vocabulary Extraction</h2>
                 <span class="feature-badge">✨ Highlight Feature</span>
             </div>
@@ -461,7 +297,7 @@
     <section id="refinement" class="guide-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-number">06</span>
+                <span class="section-number">04</span>
                 <h2>Transcript Refinement</h2>
                 <span class="feature-badge">🔄 New</span>
             </div>
@@ -575,7 +411,7 @@
     <section id="analysis" class="guide-section alt-bg">
         <div class="container">
             <div class="section-header">
-                <span class="section-number">07</span>
+                <span class="section-number">05</span>
                 <h2>Analysis Options</h2>
             </div>
             <div class="content-card">

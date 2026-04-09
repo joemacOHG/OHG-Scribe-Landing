@@ -379,27 +379,6 @@
     </div>
 </section>
 
-<!-- Get Started -->
-<section class="get-started">
-    <div class="container">
-        <h2>Ready to Get Started?</h2>
-        <p class="get-started-desc">
-            OHG Scribe requires an internal API key for transcription services.
-            Request access to begin transcribing.
-        </p>
-        <div class="get-started-action">
-            <a
-                href="mailto:assemblyai@openhealthgroup.com?subject=OHG%20Scribe%20API%20Key%20Request&body=Hi%2C%0A%0AI%20would%20like%20to%20request%20an%20API%20key%20for%20OHG%20Scribe.%0A%0AName%3A%20%0AEmail%3A%20%0ATeam%2FDepartment%3A%20%0A%0AThank%20you!"
-                class="btn btn-primary"
-            >
-                Request API Key
-            </a>
-            <p class="get-started-note">We'll send your key within 24 hours</p>
-            <a href="/guide" class="guide-link">View Setup Guide →</a>
-        </div>
-    </div>
-</section>
-
 <!-- Footer CTA -->
 <section class="footer-cta">
     <div class="container">
